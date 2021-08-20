@@ -1,0 +1,102 @@
+@import "mixin";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: rgb(26, 26, 26);
+  .layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include flex(row);
+    align-items: center;
+    justify-content: center;
+    div {
+      width: 15%;
+      height: 100%;
+      background: rgb(51, 51, 51);
+    }
+  }
+
+  .main {
+    width: 100%;
+    height: 100%;
+    @include flex(row);
+    div {
+      border-right: 1px solid rgba($color: rgb(141, 141, 141), $alpha: 0.6);
+    }
+    .main1 {
+      width: 15%;
+    }
+    .main2 {
+      width: 25%;
+    }
+    .main3 {
+      width: 45%;
+    }
+    .main4 {
+      width: 15%;
+      border-right: none;
+    }
+    .hero-txt {
+      text-transform: uppercase;
+      position: absolute;
+      top: 20%;
+      left: 8%;
+      font-size: 34px;
+      color: white;
+      border-right: none;
+      @include flex(row);
+      gap: 0.4em;
+      overflow: hidden;
+      div {
+        border-right: none;
+        overflow: hidden;
+        @include flex(row);
+        // span {
+        //   transform: rotate(180deg);
+        // }
+      }
+    }
+  }
+
+  .circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 40%;
+    border: 1px solid white;
+    position: absolute;
+    left: 40%;
+    opacity: 0;
+  }
+  .circle1 {
+    animation: drift 5000ms infinite linear;
+  }
+  .circle2 {
+    animation: drift 7000ms infinite linear;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
